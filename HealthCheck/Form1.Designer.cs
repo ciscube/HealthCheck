@@ -1,4 +1,4 @@
-﻿namespace Health_Check
+﻿namespace HealthCheck
 {
     partial class Form1
     {
@@ -28,17 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Form1
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 653);
-            this.Name = "Form1";
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Text = "Form1";
-            this.ResumeLayout(false);
-
         }
 
         #endregion

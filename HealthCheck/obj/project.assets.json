@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\chua_s\\Source\\Repos\\ciscube\\PegatronHealthCheck\\Health Check\\Health Check.csproj",
-      "projectName": "Health Check",
-      "projectPath": "C:\\Users\\chua_s\\Source\\Repos\\ciscube\\PegatronHealthCheck\\Health Check\\Health Check.csproj",
+      "projectUniqueName": "C:\\Users\\chua_s\\source\\repos\\ciscube\\PegatronHealthCheck\\HealthCheck\\HealthCheck.csproj",
+      "projectName": "HealthCheck",
+      "projectPath": "C:\\Users\\chua_s\\source\\repos\\ciscube\\PegatronHealthCheck\\HealthCheck\\HealthCheck.csproj",
       "packagesPath": "C:\\Users\\chua_s\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\chua_s\\Source\\Repos\\ciscube\\PegatronHealthCheck\\Health Check\\obj\\",
+      "outputPath": "C:\\Users\\chua_s\\source\\repos\\ciscube\\PegatronHealthCheck\\HealthCheck\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

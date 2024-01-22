@@ -1,4 +1,4 @@
-namespace Health_Check
+namespace HealthCheck
 {
     public partial class Form1 : Form
     {

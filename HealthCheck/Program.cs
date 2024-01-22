@@ -1,4 +1,4 @@
-namespace Health_Check
+namespace HealthCheck
 {
     internal static class Program
     {
