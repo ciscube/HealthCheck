@@ -17,3 +17,6 @@ C:\Users\chua_s\source\repos\ciscube\PegatronHealthCheck\HealthCheck\obj\Debug\n
 C:\Users\chua_s\source\repos\ciscube\PegatronHealthCheck\HealthCheck\bin\Debug\net6.0-windows\NationalInstruments.VisaNS.dll
 C:\Users\chua_s\source\repos\ciscube\PegatronHealthCheck\HealthCheck\obj\Debug\net6.0-windows\HealthCheck.FormMain.resources
 C:\Users\chua_s\source\repos\ciscube\PegatronHealthCheck\HealthCheck\obj\Debug\net6.0-windows\HealthCheck.csproj.CopyComplete
+C:\Users\chua_s\source\repos\ciscube\PegatronHealthCheck\HealthCheck\bin\Debug\net6.0-windows\NationalInstruments.Common.dll
+C:\Users\chua_s\source\repos\ciscube\PegatronHealthCheck\HealthCheck\bin\Debug\net6.0-windows\NationalInstruments.NI4882.dll
+C:\Users\chua_s\source\repos\ciscube\PegatronHealthCheck\HealthCheck\bin\Debug\net6.0-windows\NationalInstruments.NI4882.xml

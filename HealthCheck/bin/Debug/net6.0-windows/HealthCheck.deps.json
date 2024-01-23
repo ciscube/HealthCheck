@@ -8,10 +8,28 @@
     ".NETCoreApp,Version=v6.0": {
       "HealthCheck/1.0.0": {
         "dependencies": {
+          "NationalInstruments.Common": "15.0.40.49154",
+          "NationalInstruments.NI4882": "13.0.45.161",
           "NationalInstruments.VisaNS": "13.0.45.167"
         },
         "runtime": {
           "HealthCheck.dll": {}
+        }
+      },
+      "NationalInstruments.Common/15.0.40.49154": {
+        "runtime": {
+          "NationalInstruments.Common.dll": {
+            "assemblyVersion": "15.0.40.49154",
+            "fileVersion": "15.0.40.49154"
+          }
+        }
+      },
+      "NationalInstruments.NI4882/13.0.45.161": {
+        "runtime": {
+          "NationalInstruments.NI4882.dll": {
+            "assemblyVersion": "13.0.45.161",
+            "fileVersion": "13.0.45.161"
+          }
         }
       },
       "NationalInstruments.VisaNS/13.0.45.167": {
@@ -27,6 +45,16 @@
   "libraries": {
     "HealthCheck/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NationalInstruments.Common/15.0.40.49154": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NationalInstruments.NI4882/13.0.45.161": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     },

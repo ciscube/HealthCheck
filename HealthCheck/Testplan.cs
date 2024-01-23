@@ -5,7 +5,7 @@ namespace HealthCheck
 {
     internal class Testplan
     {
-        private String testNameVsaPowerAccuracy = "Vsa Power Accuracy";
+        private String testNameVsaPowerAccuracy = "VSA Power Accuracy";
         private List<VsaPowerAccuracy> vsaPowerAccuracyList = new List<VsaPowerAccuracy>();
 
         private SpectrumAnalyser sA = null;
@@ -25,7 +25,7 @@ namespace HealthCheck
 
             VsaPowerAccuracy test = new VsaPowerAccuracy(this.logging, this.traceFilename);
             test.SetInstruments(this.sG, this.sA, this.dut);
-            test.SetParamters(Double.Parse(items[1]), Double.Parse(items[2]), Double.Parse(items[3]), Double.Parse(items[1]), Double.Parse(items[5]), portName);
+            test.SetParamters(Double.Parse(items[1]), Double.Parse(items[2]), Double.Parse(items[3]), Double.Parse(items[4]), Double.Parse(items[5]), portName);
             return test;
         }
 
@@ -59,10 +59,14 @@ namespace HealthCheck
                     {
                         while ((line = file.ReadLine()) != null)
                         {
-                            if (line == "Test_End") 
+                            if (line.Contains("Test_End")) 
                                 break;
                             else if (line.Contains("Ports="))
-                                portName = line.Substring("Test_End".Length);
+                            {
+                                String[] items = line.Split(",");
+                                portName = items[0].Substring("Ports=".Length);
+                            }
+                                
                             else
                                 this.vsaPowerAccuracyList.Add(this.PopulateVsaPowerAccuracy(line, portName));
                         }
@@ -78,16 +82,21 @@ namespace HealthCheck
             }
 
             file.Close();
-        }       
+        }
 
         public void Run()
         {
-            Boolean passResult = false;
-            Double measuredResult = 0;
+            String textPrint = String.Empty;
+            String textSaved = String.Empty;
 
-            foreach(var item in this.vsaPowerAccuracyList)
+            this.displayPanel.SelectionTabs = new int[] {90, 180, 270, 360};
+            this.displayPanel.AppendText(" " + "Test" + "\t\t" + "Settings" + "\t\t\t\t\t\t" + "LLimit" + "\t\t" +"HLimit" + "\t\t" + "Measured" + "\t" + "Verdict" + "\n");
+
+            foreach (var item in this.vsaPowerAccuracyList)
             {
-                item.Run(passResult, measuredResult);
+                item.Run(ref textPrint, ref textSaved);
+                this.displayPanel.AppendText(textPrint);
+                this.displayPanel.Refresh();
             }
         }
     }

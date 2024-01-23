@@ -9,6 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="nivisa64.lib" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="NationalInstruments.Common">
+      <HintPath>reference\NationalInstruments.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="NationalInstruments.NI4882">
+      <HintPath>reference\NationalInstruments.NI4882.dll</HintPath>
+    </Reference>
     <Reference Include="NationalInstruments.VisaNS">
       <HintPath>NationalInstruments.VisaNS.dll</HintPath>
     </Reference>

@@ -1,4 +1,5 @@
 using HealthCheck.Devices;
+using System.Text;
 
 namespace HealthCheck
 {
@@ -23,15 +24,41 @@ namespace HealthCheck
             this.buttonStart.Enabled = false;
         }
 
+        private void WriteTrace(String message, String traceFilename)
+        {
+            if (this.logging)
+            {
+                using (StreamWriter writer = new StreamWriter(traceFilename, true))
+                {
+                    StringBuilder s = new StringBuilder(message);
+                    writer.WriteLine(s);
+                    writer.Dispose();
+                }
+            }
+        }
+
         private void buttonStart_Click(object sender, EventArgs e)
         {
             try
             {
-                this.buttonStart.Text = "Testing...";
+               this.buttonStart.Text = "Testing...";
 
-                String dateNow = this.GetDateTime();
-                String resultFilename = this.workingDirPath + "\\results" + "\\" + "result_" + dateNow + ".csv";
-                String traceFilename = this.workingDirPath + "\\logs" + "\\" + "log_" + dateNow + ".txt";
+                DateTime dt = this.GetDateTime();
+                String traceFilename = this.workingDirPath + "\\logs" + "\\" + "Log_" + dt.ToString("ddMMyyyy") + "_" + dt.ToString("hhmmss") + ".txt";
+                String resultFilename = this.workingDirPath + "\\results" + "\\" + "result_" + dt.ToString("ddMMyyyy") + "_" + dt.ToString("hhmmss") + ".csv";
+             
+                StringBuilder s = new StringBuilder("SA Resource: " + this.textBoxSA.Text);
+                s.AppendLine();
+                s.AppendLine("SG Resource: " + this.textBoxSG.Text);
+                s.AppendLine("DUT Resource: " + this.textBoxDUT.Text);
+                s.AppendLine("Power sensor Resource: " + this.textBoxPS.Text);
+                s.AppendLine("Path Calibration: " + this.checkBoxPathCal.Checked);
+                s.AppendLine("Config filename: " + this.workingDirPath + "\\" + this.configFilename);
+                s.AppendLine("Result filename: " + resultFilename);
+                s.AppendLine("Demo Mode: " + this.demoMode);
+                s.AppendLine("Instruments Reset: " + this.resetInstruments);
+
+                this.WriteTrace(s.ToString(), traceFilename);
 
                 this.sA.SetTraceFilename(traceFilename);
                 this.sG.SetTraceFilename(traceFilename);
@@ -41,7 +68,12 @@ namespace HealthCheck
                 testplan.PopulateTests(workingDirPath + "\\" + configFilename);
                 testplan.SetResults(this.richTextBoxDisplay, resultFilename);
 
+                this.textBoxDate.Text = dt.ToString("dd/MM/yyyy");
+                this.textBoxTime.Text = dt.ToString("HH:mm:ss");
+
                 this.richTextBoxDisplay.Clear();
+
+                testplan.Run();
             }
             catch (Exception ex)
             {
@@ -55,14 +87,26 @@ namespace HealthCheck
         {
             try
             {
+                StringBuilder s = new StringBuilder("SA Resource: " + this.textBoxSA.Text);
+                s.AppendLine();
+                s.AppendLine("SG Resource: " + this.textBoxSG.Text);
+                s.AppendLine("DUT Resource: " + this.textBoxDUT.Text);
+                s.AppendLine("Power sensor Resource: " + this.textBoxPS.Text);
+                s.AppendLine("Path Calibration: " + this.checkBoxPathCal.Checked);
+                s.AppendLine("Config filename: " + this.workingDirPath + "\\" + this.configFilename);
+                s.AppendLine("Demo Mode: " + this.demoMode);
+                s.AppendLine("Instruments Reset: " + this.resetInstruments);
+
                 this.buttonStart.Enabled = false;
                 this.initialised = false;
 
                 this.pathCal = this.checkBoxPathCal.Checked;
                 this.logging = this.checkBoxLogging.Checked;
               
-                String dateNow = this.GetDateTime();
-                String traceFilename = this.workingDirPath + "\\logs" + "\\" + "Init_log_" + dateNow + ".txt";
+                DateTime dt = this.GetDateTime();
+                String traceFilename = this.workingDirPath + "\\logs" + "\\" + "Init_log_" + dt.ToString("ddMMyyyy") + "_" + dt.ToString("hhmmss") + ".txt";
+
+                this.WriteTrace(s.ToString(), traceFilename);
 
                 this.sA = new SpectrumAnalyser(this.textBoxSA.Text, "SA", this.demoMode, this.resetInstruments, this.logging, traceFilename);
                 this.sG = new SignalGenerator(this.textBoxSG.Text, "SG", this.demoMode, this.resetInstruments, this.logging, traceFilename);
@@ -71,9 +115,12 @@ namespace HealthCheck
                 Testplan testplan = new Testplan(this.logging, traceFilename, this.sG, this.sA, this.dut);              
                 testplan.PopulateTests(this.workingDirPath + "\\" + this.configFilename);
 
-                this.textBoxManufacturer.Text = this.dut.Identity();
-                this.textBoxModel.Text = this.dut.Identity();
-                this.textBoxSerialNumber.Text = this.dut.Identity();
+                this.textBoxManufacturer.Text = this.dut.Manufacturer();
+                this.textBoxModel.Text = this.dut.Model();
+                this.textBoxSerialNumber.Text = this.dut.SerialNumber();
+
+                this.textBoxDate.Text = dt.ToString("dd/MM/yyyy");
+                this.textBoxTime.Text = dt.ToString("HH:mm:ss");
 
                 this.richTextBoxDisplay.Clear();
                 this.buttonStart.Enabled = true;
@@ -85,10 +132,9 @@ namespace HealthCheck
             }
         }
 
-        private String GetDateTime()
+        private DateTime GetDateTime()
         {
-            DateTime dt = DateTime.Now;
-            return dt.ToString("ddMMyyyy") + "_" + dt.ToString("hhmmss");
+            return DateTime.Now;
         }
     }
 }

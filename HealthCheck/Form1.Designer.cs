@@ -61,13 +61,13 @@
             this.richTextBoxDisplay.Enabled = false;
             this.richTextBoxDisplay.Location = new System.Drawing.Point(276, 17);
             this.richTextBoxDisplay.Name = "richTextBoxDisplay";
-            this.richTextBoxDisplay.Size = new System.Drawing.Size(648, 388);
+            this.richTextBoxDisplay.Size = new System.Drawing.Size(872, 388);
             this.richTextBoxDisplay.TabIndex = 0;
             this.richTextBoxDisplay.Text = "";
             // 
             // buttonStart
             // 
-            this.buttonStart.Location = new System.Drawing.Point(653, 411);
+            this.buttonStart.Location = new System.Drawing.Point(784, 411);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(75, 23);
             this.buttonStart.TabIndex = 1;
@@ -171,6 +171,7 @@
             this.textBoxSG.Name = "textBoxSG";
             this.textBoxSG.Size = new System.Drawing.Size(143, 23);
             this.textBoxSG.TabIndex = 17;
+            this.textBoxSG.Text = "TCPIP:192.168.0.3";
             // 
             // label6
             // 
@@ -187,6 +188,7 @@
             this.textBoxSA.Name = "textBoxSA";
             this.textBoxSA.Size = new System.Drawing.Size(143, 23);
             this.textBoxSA.TabIndex = 15;
+            this.textBoxSA.Text = "TCPIP:192.168.0.2";
             // 
             // label7
             // 
@@ -203,6 +205,7 @@
             this.textBoxDUT.Name = "textBoxDUT";
             this.textBoxDUT.Size = new System.Drawing.Size(143, 23);
             this.textBoxDUT.TabIndex = 21;
+            this.textBoxDUT.Text = "TCPIP:192.168.0.1";
             // 
             // label8
             // 
@@ -219,6 +222,7 @@
             this.textBoxPS.Name = "textBoxPS";
             this.textBoxPS.Size = new System.Drawing.Size(143, 23);
             this.textBoxPS.TabIndex = 19;
+            this.textBoxPS.Text = "TCPIP:192.168.0.4";
             // 
             // label9
             // 
@@ -251,7 +255,7 @@
             // 
             // buttonInitialise
             // 
-            this.buttonInitialise.Location = new System.Drawing.Point(487, 411);
+            this.buttonInitialise.Location = new System.Drawing.Point(527, 411);
             this.buttonInitialise.Name = "buttonInitialise";
             this.buttonInitialise.Size = new System.Drawing.Size(75, 23);
             this.buttonInitialise.TabIndex = 23;
@@ -263,7 +267,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(936, 443);
+            this.ClientSize = new System.Drawing.Size(1161, 443);
             this.Controls.Add(this.buttonInitialise);
             this.Controls.Add(this.textBoxDUT);
             this.Controls.Add(this.label8);
@@ -291,6 +295,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rohde & Schwarz Health Check Tool";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
