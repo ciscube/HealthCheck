@@ -8,4 +8,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="NationalInstruments.VisaNS">
+      <HintPath>NationalInstruments.VisaNS.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

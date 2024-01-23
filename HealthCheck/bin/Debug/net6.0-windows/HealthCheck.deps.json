@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "HealthCheck/1.0.0": {
+        "dependencies": {
+          "NationalInstruments.VisaNS": "13.0.45.167"
+        },
+        "runtime": {
+          "HealthCheck.dll": {}
+        }
+      },
+      "NationalInstruments.VisaNS/13.0.45.167": {
+        "runtime": {
+          "NationalInstruments.VisaNS.dll": {
+            "assemblyVersion": "13.0.45.167",
+            "fileVersion": "13.0.45.167"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HealthCheck/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NationalInstruments.VisaNS/13.0.45.167": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
