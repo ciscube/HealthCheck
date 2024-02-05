@@ -52,7 +52,7 @@ namespace HealthCheck.Devices
 
         public void SetRFLevel(Double level_dBm)
         {
-            this.session.Write("DISPlay:TRACe1 ON");
+            this.session.Write("LEVEL:" + level_dBm); // Write RF level
             this.session.Write("DISPlay:TRACe1:MODE MAXHold");
         }
 
